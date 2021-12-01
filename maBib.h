@@ -1,4 +1,5 @@
-#include "maBib.c"
+#pragma once
+#include <stdbool.h>
 
 struct date
 {
@@ -10,24 +11,25 @@ typedef struct date DATE;
 
 struct client
 {
-    char[50] nom;
-    char[50] prenom;
-    char[9] cin;
+    char nom[50];
+    char prenom[50];
+    char cin[12];
     DATE date_naiss;
-    char[10] num_passport;
+    char num_passport[10];
+    int a;
 };
 typedef struct client CLIENT;
 
 struct voyage
 {
-    char[50] destination;
+    char destination[50];
     float prix;
     int nb_places;
     int places_dispo;
     DATE date_depart;
     DATE date_arrive;
     float duree_vol;
-    char[50] airline;
+    char airline[50];
 };
 typedef struct voyage VOYAGE;
 
@@ -50,14 +52,16 @@ bool places_dispo(int);
 void ajouter_client();
 void modif_client();
 void supprimer_client();
-void afficher_client();
+void afficher_client(CLIENT);
 void afficher_clients();
+void creer_client(CLIENT *);
 
 void ajouter_reservation();
 void modif_reservation();
 void supprimer_reservation();
 void afficher_reservation();
 void afficher_reservation();
+//afficher les reservations d'un certain client
 
 bool cntrl_date(DATE);
 bool cntrl_cin(char *);

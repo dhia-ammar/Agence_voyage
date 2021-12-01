@@ -1,10 +1,9 @@
 #include <stdio.h>
-#include "MaBib.h"
+#include "maBib.c"
 
 void main()
 {
-
-    int x;
-    scanf("%d", &x);
-    printf("%d", x);
+    CLIENT clt;
+    creer_client(&clt);
+    afficher_client(clt);
 }
