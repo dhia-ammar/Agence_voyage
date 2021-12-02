@@ -4,6 +4,6 @@
 void main()
 {
     CLIENT clt;
-    creer_client(&clt);
+    clt = creer_client();
     afficher_client(clt);
 }

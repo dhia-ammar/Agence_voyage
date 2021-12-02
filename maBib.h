@@ -54,7 +54,7 @@ void modif_client();
 void supprimer_client();
 void afficher_client(CLIENT);
 void afficher_clients();
-void creer_client(CLIENT *);
+CLIENT creer_client();
 
 void ajouter_reservation();
 void modif_reservation();

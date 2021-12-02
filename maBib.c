@@ -5,24 +5,25 @@
 #pragma once
 #include "maBib.h"
 
-void creer_client(CLIENT *clt)
+CLIENT creer_client()
 {
-
+    CLIENT clt;
     printf("Donner le nom du client : ");
-    fgets(clt->nom, 50, stdin);
+    fgets(clt.nom, 50, stdin);
     printf("Donner le prenom du client : ");
-    fgets(clt->prenom, 50, stdin);
+    fgets(clt.prenom, 50, stdin);
     printf("Donner le CIN du client : ");
-    fgets(clt->cin, 12, stdin);
-    while (cntrl_cin(clt->cin) == false)
+    fgets(clt.cin, 12, stdin);
+    while (cntrl_cin(clt.cin) == false)
     {
-        fgets(clt->cin, 12, stdin);
+        fgets(clt.cin, 12, stdin);
     }
     printf("donner la date de naissance");
-    scanf("%d%d%d", &clt->date_naiss.jour, &clt->date_naiss.mois, &clt->date_naiss.annee);
+    scanf("%d%d%d", &clt.date_naiss.jour, &clt.date_naiss.mois, &clt.date_naiss.annee);
     getchar();
     printf("donner le numero de passeport : ");
-    fgets(clt->num_passport, 10, stdin);
+    fgets(clt.num_passport, 10, stdin);
+    return clt;
 }
 bool cntrl_cin(char *cin)
 {
