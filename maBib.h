@@ -35,11 +35,12 @@ typedef struct voyage VOYAGE;
 
 struct reservation
 {
-    CLIENT client;
-    VOYAGE voyage;
-    DATE date_reservation;
-    int nb_res; //nombre de places reserves par le client
-    float montantTotal bool paye;
+    CLIENT client;         //client qui fet la reservation
+    VOYAGE voyage;         // voyage reserve
+    DATE date_reservation; // date a la quelle le client fait la reservation elle doit etre inferieure a la date du voyage
+    int nb_res;            //nombre de places reserves par le client
+    float montantTotal;    // le montant total a payer par le client a calculer en utilisant le nbre de places reserves et le prix du voyage
+    bool paye;             // boolean qui indique si le client a payer la reservation ou pas encore
 };
 typedef struct reservation RES;
 
@@ -72,6 +73,7 @@ void payer_reservation();              //payer un reservation
 
 void montant_caisse(); //affiche le montant total dans la caisse de l'agence
 
-bool cntrl_date(DATE);  //controle sur la date
-bool cntrl_cin(char *); //controle sur le cin
-bool cntrl_nom(char *); //controle sur le nom (ne doit pas contenir des chiffres)
+bool cntrl_date(DATE);         //controle sur la date
+bool cntrl_cin(char *);        //controle sur le cin doit contenir 8 caracteres numeriques
+bool cntrl_nom(char *);        //controle sur le nom (ne doit pas contenir des chiffres) a utiliser avec nom prenom et destination
+int comparer_date(DATE, DATE); // comparer deux dates donnes date1 et date2 la fonction retourne 1 si la 1ere date est sup -1 si elle est inf et 0 si les deux dates sont egaux
